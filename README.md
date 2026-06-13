@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+<p align="center">
+  <img src="./assets/logo.png" alt="Fabel Logo" width="220"/>
+</p>
 
-First, run the development server:
+<p align="center">
+  AI-powered social reading platform
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+Fabel is an AI-powered social reading platform that helps readers discover books, organize their personal library, save highlights, and connect with fellow readers through community discussions.
+
+## Features
+
+### Book Discovery
+Explore books through a visually rich masonry dashboard
+Search and filter books by genre, author, and keywords
+AI-powered personalized book recommendations
+Detailed book previews and summaries
+
+### Personal Library
+    - Organize books into:
+    - Want to Read
+    - Currently Reading
+    - Completed
+    - Track reading progress
+    - Manage favorite books
+
+### Community
+    - Join discussions around books and genres
+    - Share reviews and thoughts
+    - Discover what other readers are reading
+
+### AI Integration
+    - Personalized recommendations
+    - Smart book discovery
+    - Reading insights and suggestions
+    - Context-aware reading assistant
+
+### Highlights & Bookmarks
+    - Save favorite passages
+    - Bookmark important sections
+    - Access all saved content from one place
+## Tech Stack
+
+**Frontend:** 
+   - Next.js 15
+   - TypeScript
+   - Tailwind CSS
+   - Shadcn UI
+   - Framer Motion
+   - TanStack Query
+   - Axios
+   - React Hook Form
+   - Zod
+   - React Masonry CSS
+
+**Backend:**
+   - Node.js
+   - Express.js
+   - JWT
+   - Bcrypt
+   - Socket.io
+
+**Database:**
+   - MongoDB Atlas
+   - Mongoose
+
+**AI & RAG:**
+   - Google Gemini 2.5 Flash
+   - Google Gemini Embeddings
+   - MongoDB Atlas Vector Search
+   - RAG (Retrieval-Augmented Generation)
+
+**Storage:**
+- Cloudinary
+
+
+
+
+
+## Project Structure
+```fabel/
+├── client/
+│   ├── app/
+│   ├── components/
+│   ├── hooks/
+│   ├── services/
+│   ├── store/
+│   ├── types/
+│   └── utils/
+│
+├── server/
+│   ├── src/
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   └── middleware/
+│
+└── README.md
 ```
+##  Vision
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Fabel aims to combine the best aspects of Goodreads, Kindle highlights, and AI-powered discovery into a unified reading platform. It enables readers to discover new books, organize personal libraries, save meaningful highlights, engage in community discussions, and receive intelligent recommendations tailored to their interests.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The goal is to create a modern digital space where reading is not only personal but also interactive, insightful, and community-driven.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+##  License
 
-To learn more about Next.js, take a look at the following resources:
+This project is built for learning, portfolio, and educational purposes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All third-party content, including book metadata, cover images, and recommendations, remains the property of their respective owners. Fabel is a non-commercial project developed to showcase full-stack development, AI integration, and modern web application architecture.
