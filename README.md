@@ -1,13 +1,14 @@
 
 <p align="center">
-  <img src="./assests/a1e5982c00ac49f595c46dac93f4e93d.png" alt="Fabel Logo" width="220"/>
+  <img src="./assests/a1e5982c00ac49f595c46dac93f4e93d.png" alt="Fabel Logo" width="350"/>
 </p>
 
 <p align="center">
-  AI-powered social reading platform
+  <strong>AI-powered social reading platform</strong>
 </p>
-
-
+<p align="center">
+  Discover • Organize • Discuss • Explore
+</p>
 Fabel is an AI-powered social reading platform that helps readers discover books, organize their personal library, save highlights, and connect with fellow readers through community discussions.
 
 ## Features
@@ -79,8 +80,111 @@ Detailed book previews and summaries
 
 
 
+## Getting Started
+
+### Prerequisites
+
+Make sure you have installed:
+
+- Node.js (v18+)
+- npm
+- MongoDB Atlas account
+- Google Gemini API key
+- Cloudinary account
+
+---
+
+### Clone Repository
+
+```bash
+git clone https://github.com/tanushkat96/fabel.git
+
+cd fabel
+```
+
+---
+
+### Frontend Setup
+
+```bash
+cd client
+
+npm install
+
+npm run dev
+```
+
+Frontend will run on:
+
+```text
+http://localhost:3000
+```
+
+---
+
+### Backend Setup
+
+```bash
+cd server
+
+npm install
+
+npm run dev
+```
+
+Backend will run on:
+
+```text
+http://localhost:5000
+```
+
+---
+
+### Environment Variables
+
+Create a `.env` file inside the `server` directory.
+
+```env
+PORT=5000
+
+MONGODB_URI=
+
+JWT_SECRET=
+
+GEMINI_API_KEY=
+
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+```
+
+---
+
+### Running the Application
+
+Open two terminals.
+
+#### Terminal 1
+
+```bash
+cd client
+npm run dev
+```
+
+#### Terminal 2
+
+```bash
+cd server
+npm run dev
+```
+
+---
+
 ## Project Structure
-```fabel/
+
+```text
+fabel/
+├── assets/
 ├── client/
 │   ├── app/
 │   ├── components/
@@ -92,10 +196,11 @@ Detailed book previews and summaries
 │
 ├── server/
 │   ├── src/
-│   ├── routes/
 │   ├── controllers/
+│   ├── routes/
 │   ├── models/
-│   └── middleware/
+│   ├── middleware/
+│   └── services/
 │
 └── README.md
 ```
