@@ -3,45 +3,68 @@ import { GenreSlider } from "@/components/genre-slider"
 import { Reviews } from "@/components/reviews"
 import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
-import { Star } from "lucide-react"
 import Image from "next/image"
 import icon from "@/app/icon.png"
+import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link"
+import { BooksOfWeek } from "@/components/books-of-week"
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-background">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-2 py-6">
-        <div className="flex items-center gap-2">
-          <Image
-            src={icon}
-            alt="Fabel"
-            width={120}
-            height={120}
-          />
+      <header className="fixed top-0 z-20 w-full border-b border-white/10 backdrop-blur-xl bg-background/70">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-          
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src={icon}
+              alt="Fabel"
+              width={100}
+              height={30}
+              priority
+              className="h-auto w-auto"
+            />
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-10">
+            <Link href="#books" className="hover:text-primary">
+              New Releases
+            </Link>
+
+            <Link href="#genres" className="hover:text-primary">
+              Genres
+            </Link>
+
+            <Link href="#reviews" className="hover:text-primary">
+              Reviews
+            </Link>
+          </nav>
+
+          <div className="flex items-center gap-6">
+
+            <ThemeToggle />
+            <Button variant="outline">
+              Log In
+            </Button>
+            <Button  variant="outline">
+              Sign In
+            </Button>
+
+          </div>
+
         </div>
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
-          <a href="#" className="transition-colors hover:text-foreground">Browse</a>
-          <a href="#" className="transition-colors hover:text-foreground">New Releases</a>
-          <a href="#" className="transition-colors hover:text-foreground">Authors</a>
-        </nav>
-        <Button variant="outline" size="lg">Sign in</Button>
       </header>
 
-      <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden pt-50">
         {/* Infinite-motion carousel as the backdrop */}
-        <div className="absolute inset-0 -z-10 flex items-center opacity-40">
+        <div className="absolute inset-0 -z-10  flex items-center opacity-65">
           <BookCarousel />
         </div>
         {/* Readability scrim over the moving covers */}
-        <div className="absolute inset-0 -z-10 bg-linear-to-b from-background/70 via-background/85 to-background" />
+       <div className="absolute inset-0 -z-10 bg-linear-to-b from-background/95 via-background/80 to-background" />
 
-        <div className="mx-auto flex max-w-3xl flex-col items-center px-6 py-28 text-center lg:py-40">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
-            <Star className="size-3.5 fill-primary text-primary" />
-            Curated picks of the month
-          </span>
+        <div className="mx-auto flex max-w-3xl flex-col items-center px-6 pt-4 pb-28 text-center lg:pt-12 lg:pb-40">
+          
           <h1 className="mt-6 font-serif text-4xl font-bold leading-tight text-foreground text-balance sm:text-6xl lg:text-7xl">
             Discover your next favorite story
           </h1>
@@ -50,14 +73,25 @@ export default function Page() {
             reading.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button size="lg" className="h-11 px-6 text-sm">Start reading</Button>
+            <Button size="lg" className="h-11 px-6 text-sm" asChild>
+              <a href="#books">Start Reading</a>
+            </Button>
             <Button variant="ghost" size="lg" className="h-11 px-6 text-sm">Explore</Button>
           </div>
         </div>
       </section>
 
-      <GenreSlider />
-      <Reviews />
+      <section id="genres" className="scroll-mt-24">
+        <GenreSlider />
+      </section>
+
+      <section id="books" className="scroll-mt-24">
+        <BooksOfWeek />
+      </section>
+
+      <section id="reviews" className="scroll-mt-24">
+        <Reviews />
+      </section>
       <SiteFooter />
     </main>
   )

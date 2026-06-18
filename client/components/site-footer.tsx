@@ -1,4 +1,6 @@
-import { BookOpen } from "lucide-react"
+import Image from "next/image"
+import icon from "@/app/icon.png"
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const columns = [
   {
@@ -18,12 +20,18 @@ const columns = [
 export function SiteFooter() {
   return (
     <footer className="bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-14">
+      <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2">
-              <BookOpen className="size-6 text-primary" />
-              <span className="font-serif text-xl font-semibold text-foreground">Marginalia</span>
+              <Image
+                src={icon}
+                alt="Fabel"
+                width={100}
+                height={30}
+                priority
+                className="h-auto w-auto"
+              />
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground text-pretty">
               A curated home for readers. Discover, collect, and fall in love with your next great book.
@@ -47,11 +55,11 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
-          <p className="text-xs text-muted-foreground">© 2026 Marginalia. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© 2026 Fabel. All rights reserved.</p>
           <div className="flex gap-6 text-xs text-muted-foreground">
-            <a href="#" className="transition-colors hover:text-foreground">Privacy</a>
-            <a href="#" className="transition-colors hover:text-foreground">Terms</a>
-            <a href="#" className="transition-colors hover:text-foreground">Cookies</a>
+            <a href="https://www.linkedin.com/in/tanushka-tiwari2105/" className="transition-colors hover:text-foreground"><FaLinkedin size={24} /></a>
+            <a href="https://www.github.com/tanushkat96" className="transition-colors hover:text-foreground"><FaGithub size={24} /></a>
+            <a href="https://www.instagram.com/" className="transition-colors hover:text-foreground"><FaInstagram size={24} /></a>
           </div>
         </div>
       </div>

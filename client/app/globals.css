@@ -3,12 +3,7 @@
 @import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
-
-@theme {
-  --animate-marquee: marquee 45s linear infinite;
-  --animate-marquee-reverse: marquee-reverse 55s linear infinite;
-
-  @keyframes marquee {
+ @keyframes marquee {
     from {
       transform: translateX(0);
     }
@@ -26,6 +21,11 @@
       transform: translateX(0);
     }
   }
+@theme {
+  --animate-marquee: marquee 45s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 55s linear infinite;
+
+ 
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -81,7 +81,6 @@
 }
 
 :root {
-  color-scheme: light;
   --background: oklch(0.97 0.012 80);
   --foreground: oklch(0.27 0.025 50);
   --card: oklch(0.99 0.008 80);
@@ -117,7 +116,6 @@
 }
 
 .dark {
-  color-scheme: dark;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -197,5 +195,7 @@
   }
   html {
     @apply font-sans;
+  scroll-behavior: smooth;
+
   }
 }

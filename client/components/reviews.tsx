@@ -1,61 +1,82 @@
 import { Star } from "lucide-react"
+import Image from "next/image";
 
-type Review = {
-  quote: string
-  name: string
-  role: string
-}
-
-const reviews: Review[] = [
+const reviews = [
   {
-    quote: "Marginalia helped me rediscover my love of reading. The curated picks are always spot on.",
-    name: "Priya Sharma",
-    role: "Member since 2023",
+    id: 1,
+    name: "Emma Wilson",
+    role: "Avid Reader",
+    avatar: "https://i.pravatar.cc/100?img=1",
+    text: "Fabel helped me discover books I would never have picked myself. Every recommendation feels personal."
   },
   {
-    quote: "I've found more great books here in a month than I did all of last year. Beautifully done.",
-    name: "Daniel Okafor",
-    role: "Book club host",
+    id: 2,
+    name: "Michael Brown",
+    role: "Fantasy Lover",
+    avatar: "https://i.pravatar.cc/100?img=2",
+    text: "The curated collections are amazing. I found three new favorite authors in one week."
   },
   {
-    quote: "The genre collections are a joy to browse. It feels like a real bookstore, but better.",
-    name: "Hannah Lee",
-    role: "Avid reader",
-  },
-]
+    id: 3,
+    name: "Sophia Carter",
+    role: "Book Blogger",
+    avatar: "https://i.pravatar.cc/100?img=3",
+    text: "Beautiful interface, thoughtful recommendations, and a wonderful reading community."
+  }
+];
 
 export function Reviews() {
   return (
-    <section className="border-y border-border bg-secondary/40">
-      <div className="mx-auto max-w-6xl px-6 py-20">
+    <section id="reviews" className="py-24">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
-          <h2 className="font-serif text-3xl font-bold text-foreground text-balance sm:text-4xl">
-            Loved by readers everywhere
+          <h2 className="font-serif text-4xl font-bold">
+            Loved by Readers
           </h2>
-          <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Join thousands of readers who found their next favorite book.
+          <p className="mt-3 text-muted-foreground">
+            Thousands of readers discover their next favorite story with Fabel.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review) => (
-            <figure
-              key={review.name}
-              className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm"
+            <div
+              key={review.id}
+              className="group rounded-3xl border border-border/50 bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-4 fill-primary text-primary" />
+              <div className="mb-4 flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="size-4 fill-yellow-500 text-yellow-500"
+                  />
                 ))}
               </div>
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground text-pretty">
-                {`"${review.quote}"`}
-              </blockquote>
-              <figcaption className="mt-5 border-t border-border pt-4">
-                <div className="text-sm font-semibold text-foreground">{review.name}</div>
-                <div className="text-xs text-muted-foreground">{review.role}</div>
-              </figcaption>
-            </figure>
+
+              <p className="text-muted-foreground leading-relaxed">
+                &ldquo;{review.text}&rdquo;
+              </p>
+
+              <div className="mt-6 flex items-center gap-4">
+                <Image
+                  src={review.avatar}
+                  alt={review.name}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full object-cover"
+                />
+
+                <div>
+                  <h4 className="font-semibold">
+                    {review.name}
+                  </h4>
+
+                  <p className="text-sm text-muted-foreground">
+                    {review.role}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

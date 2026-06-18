@@ -18,7 +18,11 @@ const books: Book[] = [
   { id: 6, title: "Almost September", author: "Tom Brennan", cover: "/books/book6.jpg" },
   { id: 7, title: "Almost September", author: "Tom Brennan", cover: "/books/book7.jpg" },
   { id: 8, title: "Almost September", author: "Tom Brennan", cover: "/books/book8.jpg" },
-  { id: 9, title: "Almost September", author: "Tom Brennan", cover: "/books/book9.jpg" }
+  { id: 9, title: "Almost September", author: "Tom Brennan", cover: "/books/book9.jpg" },
+  { id: 6, title: "Almost September", author: "Tom Brennan", cover: "/books/book10.jpg" },
+  { id: 7, title: "Almost September", author: "Tom Brennan", cover: "/books/book11.jpg" },
+  { id: 8, title: "Almost September", author: "Tom Brennan", cover: "/books/book12.jpg" },
+  { id: 9, title: "Almost September", author: "Tom Brennan", cover: "/books/book13.jpg" },
 ]
 
 type MarqueeRowProps = {
@@ -39,12 +43,22 @@ function MarqueeRow({ reverse = false }: MarqueeRowProps) {
       >
         {loop.map((book, index) => (
           <li key={`${book.id}-${index}`} className="shrink-0">
-            <div className="relative aspect-2/3 h-55 overflow-hidden rounded-lg shadow-2xl sm:h-70">
+            <div className="
+              relative aspect-2/3
+              h-72 sm:h-96
+              overflow-hidden
+              rounded-xl
+              shadow-2xl
+              transition-all
+              duration-300
+              hover:scale-105
+              hover:shadow-3xl
+              ">
               <Image
                 src={book.cover || "/placeholder.svg"}
                 alt=""
                 fill
-                sizes="200px"
+                sizes="300px"
                 className="object-cover"
               />
               <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-foreground/10" />

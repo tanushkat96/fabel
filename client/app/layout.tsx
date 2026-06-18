@@ -1,10 +1,11 @@
-import { Analytics } from '@vercel/analytics/next'
+
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Fraunces, Figtree } from 'next/font/google'
 import './globals.css'
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
+const figtree = Figtree({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({
@@ -12,6 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 const fraunces = Fraunces({ variable: '--font-fraunces', subsets: ['latin'] })
+
 
 export const metadata: Metadata = {
   title: 'Fabel — Discover your next favorite story',
@@ -49,13 +51,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn("bg-background", geistSans.variable, geistMono.variable, fraunces.variable, "font-sans", figtree.variable)}
-    >
+   <html
+  lang="en"
+  suppressHydrationWarning
+  className={cn(
+    figtree.variable,
+    fraunces.variable,
+    geistMono.variable
+  )}
+>
       <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+
       </body>
     </html>
   )
