@@ -57,7 +57,8 @@ export default function RootLayout({
   className={cn(
     figtree.variable,
     fraunces.variable,
-    geistMono.variable
+    geistMono.variable,
+    geistSans.variable
   )}
 >
       <body className="font-sans antialiased">
