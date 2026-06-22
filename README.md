@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="./assests/a1e5982c00ac49f595c46dac93f4e93d.png" alt="Fabel Logo" width="350"/>
+  <img src="./assets/logo.png" alt="Fabel Logo" width="150"/>
 </p>
 
 <p align="center">
