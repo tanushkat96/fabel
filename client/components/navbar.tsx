@@ -4,10 +4,16 @@ import { useState } from "react";
 import AuthModal from "./AuthModal";
 import Image from "next/image"
 import icon from "@/app/icon.png"
-import  ThemeToggle from "@/components/theme-toggle"
+import dynamic from "next/dynamic";
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react";
+
+const ThemeToggle = dynamic(
+  () => import("@/components/theme-toggle").then((mod) => mod.default),
+  { ssr: false }
+);
+
 
 
 export default function Navbar() {

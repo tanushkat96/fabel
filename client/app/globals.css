@@ -138,8 +138,8 @@
   --primary-foreground: oklch(0.98 0.01 80);
 
   /* Muted Sage */
-  --secondary: oklch(0.4 0.03 130);
-  --secondary-foreground: oklch(0.95 0.01 80);
+  --secondary: oklch(0.82 0.03 130);
+  --secondary-foreground: oklch(94.986% 0.01861 145.697);
 
   /* Warm Beige */
   --accent: oklch(0.3 0.015 75);

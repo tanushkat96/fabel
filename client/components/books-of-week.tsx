@@ -16,7 +16,7 @@ export async function BooksOfWeek() {
         <div className="mt-10 grid grid-cols-2 gap-10 lg:grid-cols-6">
           {books.map((book: GoogleBook) => (
             <div key={book.id}>
-              <div className="relative aspect-2/3 overflow-hidden rounded-xl">
+              <div className="relative aspect-2/3 overflow-hidden rounded-[22px]">
                 <Image
                   src={
                     book.volumeInfo.imageLinks?.thumbnail ||

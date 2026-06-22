@@ -8,12 +8,20 @@ import { useEffect, useState } from "react";
 import { getBooksByGenre } from "@/services/books";
 import { GoogleBook } from "@/types/book";
 import { useRef } from "react";
+import BookSheet from "@/components/dashboard/BookSheet";
+
+interface Props {
+  bookpage: GoogleBook[];
+}
 
 
-
-export default  function DashboardPage() {
+export default  function DashboardPage({ bookpage }: Props) {
     const [selectedGenre, setSelectedGenre] = useState("All");
-const [books, setBooks] = useState<GoogleBook[]>([]);
+const [books, setBooks] = useState<GoogleBook[]>(bookpage);
+ const [selectedBook, setSelectedBook] =
+    useState<GoogleBook | null>(null);
+
+  const [open, setOpen] = useState(false);
 const [loading, setLoading] = useState(true);
     const genres = [
         "All",
@@ -25,7 +33,8 @@ const [loading, setLoading] = useState(true);
         "Sci-Fi",
     ];
 
- const continueReading = books.slice(0, 10);
+ const continueReading =
+  books?.slice(0, 10) ?? [];
     useEffect(() => {
   async function loadBooks() {
     setLoading(true);
@@ -34,7 +43,7 @@ const [loading, setLoading] = useState(true);
       selectedGenre
     );
 
-    setBooks(data);
+    setBooks(data ?? []);
 
     setLoading(false);
   }
@@ -151,12 +160,19 @@ const scroll = (direction: "left" | "right") => {
         scroll-smooth
       "
     >
-      {books.slice(0, 12).map((book) => (
+      {continueReading.map((book) => (
         <div
           key={book.id}
           className="min-w-[180px]"
         >
-          <BookCard book={book} size="small" />
+         <BookCard
+  book={book}
+  size="small"
+  onClick={() => {
+    setSelectedBook(book);
+    setOpen(true);
+  }}
+/>
         </div>
       ))}
     </div>
@@ -193,18 +209,22 @@ const scroll = (direction: "left" | "right") => {
                     
                 </div>
 
-                <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                <div className="mt-10 grid grid-cols-2 gap-12 lg:grid-cols-5">
                    {loading ? (
   <div className="col-span-full text-center py-20">
     Loading books...
   </div>
 ) : (
-  books.map((book) => (
-    <BookCard
-      key={book.id}
-      book={book}
-    />
-  ))
+ books.map((book) => (
+  <BookCard
+    key={book.id}
+    book={book}
+    onClick={() => {
+      setSelectedBook(book);
+      setOpen(true);
+    }}
+  />
+))
 )}
                 </div>
             </section>
@@ -227,6 +247,11 @@ const scroll = (direction: "left" | "right") => {
             >
                 ✨ Ask Fabel
             </button>
+            <BookSheet
+  open={open}
+  setOpen={setOpen}
+  book={selectedBook}
+/>
         </div>
     );
 }

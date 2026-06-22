@@ -10,7 +10,6 @@ type OpenLibraryBook = {
 type OpenLibraryResponse = {
   docs: OpenLibraryBook[];
 };
-
 export async function getBooksByGenre(
   genre: string
 ): Promise<GoogleBook[]> {
@@ -20,34 +19,26 @@ export async function getBooksByGenre(
       : genre.toLowerCase();
 
   const res = await fetch(
-    `https://openlibrary.org/search.json?subject=${query}&limit=20`,
-    {
-      next: {
-        revalidate: 3600,
-      },
-    }
+    `https://openlibrary.org/search.json?subject=${query}&limit=20`
   );
 
-  const data: OpenLibraryResponse =
-    await res.json();
+  const data = await res.json();
 
-  return data.docs.map((book) => ({
-    id: book.key,
+  return data.docs.map((book: OpenLibraryBook) => ({
+  id: book.key,
 
-    volumeInfo: {
-      title: book.title,
+  volumeInfo: {
+    title: book.title,
 
-      authors:
-        book.author_name ??
-        ["Unknown Author"],
+    authors:
+      book.author_name ??
+      ["Unknown Author"],
 
-      averageRating: undefined,
-
-      imageLinks: {
-        thumbnail: book.cover_i
-          ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
-          : undefined,
-      },
+    imageLinks: {
+      thumbnail: book.cover_i
+        ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+        : "/placeholder-book.jpg",
     },
-  }));
+  },
+}));
 }

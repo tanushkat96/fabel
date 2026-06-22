@@ -86,7 +86,7 @@ border-[#CDBEAD]/50
 dark:bg-white/5
 dark:border-white/10
 
-backdrop-blur-2xl
+backdrop-blur-[16px]
 shadow-[0_8px_32px_rgba(0,0,0,0.15)]
 dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
 [scrollbar-width:none]
@@ -169,7 +169,7 @@ p-8
                                             placeholder="Full Name"
                                             className="
   w-full
-  rounded-2xl
+  rounded-[16px]
   border
 
   bg-white/70
@@ -201,7 +201,7 @@ p-8
                                     autoComplete="off"
                                     className="
   w-full
-  rounded-2xl
+  rounded-[16px]
   border
 
   bg-white/70
@@ -231,7 +231,7 @@ p-8
                                     autoComplete="new-password"
                                     className="
   w-full
-  rounded-2xl
+  rounded-[16px]
   border
 
   bg-white/70
@@ -278,7 +278,7 @@ p-8
                                             placeholder="Confirm Password"
                                             className="
         w-full
-        rounded-2xl
+        rounded-[16px]
         border
         bg-white/70
         border-[#CDBEAD]
@@ -304,7 +304,7 @@ p-8
                                 <button
                                     className="
   w-full
-  rounded-2xl
+  rounded-[16px]
   border
 
   bg-[#5D1C34]
@@ -339,7 +339,7 @@ p-8
     justify-center
     gap-3
     w-full
-    rounded-2xl
+    rounded-[16px]
     border
     border-[#CDBEAD]
     bg-white/70
