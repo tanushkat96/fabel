@@ -34,7 +34,7 @@ function MarqueeRow({ reverse = false }: MarqueeRowProps) {
   const loop = [...books, ...books]
 
   return (
-    <div className="flex w-max shrink-0 items-center gap-6" aria-hidden="true">
+    <div className="flex w-max shrink-0 items-center gap-4" aria-hidden="true">
       <ul
         className="flex shrink-0 items-center gap-6"
         style={{
@@ -47,7 +47,7 @@ function MarqueeRow({ reverse = false }: MarqueeRowProps) {
               relative aspect-2/3
               h-72 sm:h-96
               overflow-hidden
-              rounded-xl
+              rounded-[20px]
               shadow-2xl
               transition-all
               duration-300
