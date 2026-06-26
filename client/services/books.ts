@@ -22,7 +22,7 @@ export async function getBooksByGenre(
     `https://openlibrary.org/search.json?subject=${query}&limit=20`
   );
 
-  const data = await res.json();
+  const data:OpenLibraryResponse = await res.json();
 
   return data.docs.map((book: OpenLibraryBook) => ({
   id: book.key,

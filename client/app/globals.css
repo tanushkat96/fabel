@@ -224,3 +224,11 @@
   background: #a67d45;
   border-radius: 999px;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}

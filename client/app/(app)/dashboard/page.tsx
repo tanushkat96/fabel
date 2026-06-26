@@ -79,12 +79,7 @@ export default function DashboardPage({ bookpage }: Props) {
         </div>
 
         <div className="flex items-center gap-3">
-          {/* Theme Button */}
-          <ThemeToggle />
-          {/* Profile */}
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
-            T
-          </div>
+          
         </div>
       </header>
 
@@ -181,6 +176,7 @@ export default function DashboardPage({ bookpage }: Props) {
                 <BookCard
                   book={book}
                   size="small"
+                  
                   onClick={() => {
                     setSelectedBook(book);
                     setOpen(true);

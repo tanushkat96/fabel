@@ -9,7 +9,7 @@ import {
   BookOpen,
   Users,
   Settings,
-  User,
+  Sparkles,
   LogOut,
 } from "lucide-react";
 
@@ -30,15 +30,16 @@ const navItems = [
     icon: Users,
   },
   {
+    name: "Ask Fabel",
+    href: "/fabel",
+    icon: Sparkles,
+  },
+  {
     name: "Settings",
     href: "/settings",
     icon: Settings,
   },
-  {
-    name: "Profile",
-    href: "/profile",
-    icon: User,
-  },
+  
 ];
 
 export default function FloatingSidebar() {
