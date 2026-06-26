@@ -2,7 +2,7 @@
 import { BookCarousel } from "@/components/book-carousel"
 import { GenreSlider } from "@/components/genre-slider"
 import { Reviews } from "@/components/reviews"
-import { SiteFooter } from "@/components/site-footer"
+import  SiteFooter  from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
 
 import { BooksOfWeek } from "@/components/books-of-week"

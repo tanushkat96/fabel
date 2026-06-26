@@ -72,13 +72,32 @@ function SheetContent({
         {showCloseButton && (
           <SheetPrimitive.Close data-slot="sheet-close" asChild>
             <Button
-              variant="ghost"
-              className="absolute top-4 right-4"
-              size="icon-sm"
-            >
-              <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />
-              <span className="sr-only">Close</span>
-            </Button>
+  variant="outline"
+  size="icon"
+  className="
+    absolute
+    right-5
+    top-5
+    h-10
+    w-10
+    rounded-full
+    border
+    bg-background
+    shadow-sm
+    transition-all
+    hover:scale-105
+    hover:bg-primary
+    hover:text-primary-foreground
+  "
+>
+  <HugeiconsIcon
+    icon={Cancel01Icon}
+    strokeWidth={2}
+    className="h-5 w-5"
+  />
+  <span className="sr-only">Close</span>
+</Button>
+              
           </SheetPrimitive.Close>
         )}
       </SheetPrimitive.Content>

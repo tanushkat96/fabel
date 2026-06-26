@@ -1,4 +1,5 @@
 import { GoogleBook } from "@/types/book";
+
 type OpenLibraryBook = {
   key: string;
   title: string;
@@ -10,16 +11,8 @@ type OpenLibraryResponse = {
   docs: OpenLibraryBook[];
 };
 
-export async function getBooksOfWeek(): Promise<GoogleBook[]> {
-  const res = await fetch(
-    "https://openlibrary.org/search.json?q=popular&limit=12"
-  );
-
-  const data:OpenLibraryResponse = await res.json();
-
-  console.log(data);
-
-  return data.docs.map((book:OpenLibraryBook) => ({
+function mapBook(book: OpenLibraryBook): GoogleBook {
+  return {
     id: book.key,
     volumeInfo: {
       title: book.title,
@@ -30,5 +23,37 @@ export async function getBooksOfWeek(): Promise<GoogleBook[]> {
           : "/placeholder-book.jpg",
       },
     },
-  }));
+  };
+}
+
+export async function getBooksOfWeek(): Promise<GoogleBook[]> {
+  const res = await fetch(
+    "https://openlibrary.org/search.json?q=popular&limit=12",
+    {
+      cache: "force-cache",
+    }
+  );
+
+  const data: OpenLibraryResponse = await res.json();
+
+  return data.docs.map(mapBook);
+}
+
+export async function searchBooks(
+  query: string
+): Promise<GoogleBook[]> {
+  if (!query.trim()) return [];
+
+  const res = await fetch(
+    `https://openlibrary.org/search.json?q=${encodeURIComponent(
+      query
+    )}&limit=20`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  const data: OpenLibraryResponse = await res.json();
+
+  return data.docs.map(mapBook);
 }

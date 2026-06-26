@@ -7,6 +7,7 @@ import {
     Sheet,
     SheetContent,
     SheetHeader,
+    SheetClose,
     SheetTitle,
 } from "@/components/ui/sheet";
 
@@ -46,8 +47,7 @@ export default function BookSheet({
     const description =
         book.volumeInfo.description ??
         "No description available.";
-    console.log(book.volumeInfo);
-    console.log(description);
+
 
 
     return (
@@ -57,23 +57,33 @@ export default function BookSheet({
         >
             <SheetContent
                 side="right"
+                 showCloseButton={false}
                 className="
   w-[55vw]
-  min-w-[850px]
+  min-w-212.5
   max-w-none
   p-0
 "
             >
                 {/* Header */}
 
-                <div className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
-                    <SheetHeader className="px-6 py-4">
-                        <SheetTitle>
-                            Book Details
-                        </SheetTitle>
-                    </SheetHeader>
-                </div>
+               <div className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
+  <SheetHeader className="flex flex-row items-center justify-between px-6 py-4">
 
+    <SheetTitle>Book Details</SheetTitle>
+
+   <SheetClose asChild>
+  <Button
+    variant="ghost"
+    size="icon"
+    className="rounded-full hover:bg-muted"
+  >
+    <X className="h-5 w-5" />
+  </Button>
+</SheetClose>
+
+  </SheetHeader>
+</div>
                 {/* Content */}
 
                 <div className="p-6">

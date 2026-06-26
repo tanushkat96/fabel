@@ -40,8 +40,9 @@ export default function Navbar() {
 
                     {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-10">
-                        <Link href="#books">New Releases</Link>
                         <Link href="#genres">Genres</Link>
+                        <Link href="#books">New Releases</Link>
+                        
                         <Link href="#reviews">Reviews</Link>
                     </nav>
 
@@ -84,18 +85,19 @@ export default function Navbar() {
                     <div className="border-t border-white/10 bg-background/95 backdrop-blur-xl md:hidden">
                         <div className="flex flex-col p-6 gap-4">
 
-                            <Link
-                                href="#books"
-                                onClick={() => setMobileMenu(false)}
-                            >
-                                New Releases
-                            </Link>
+                            
 
                             <Link
                                 href="#genres"
                                 onClick={() => setMobileMenu(false)}
                             >
                                 Genres
+                            </Link>
+                            <Link
+                                href="#books"
+                                onClick={() => setMobileMenu(false)}
+                            >
+                                New Releases
                             </Link>
 
                             <Link

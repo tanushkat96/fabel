@@ -36,8 +36,8 @@ export default function BookCard({ book, size = "large",onClick }: BookCardProps
 
     ${
       size === "small"
-        ? "h-[290px]"
-        : "h-[420px]"
+        ? "h-72.5"
+        : "h-105"
     }
   `}>
   <Image
