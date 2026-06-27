@@ -21,6 +21,7 @@ export async function getBooksByGenre(
   const res = await fetch(
     `https://openlibrary.org/search.json?subject=${query}&limit=20`
   );
+  if (!res.ok) return [];
 
   const data:OpenLibraryResponse = await res.json();
 
