@@ -9,7 +9,7 @@ import {
   BookOpen,
   Users,
   Settings,
-  Sparkles,
+  ChartColumn,
   LogOut,
 } from "lucide-react";
 
@@ -30,9 +30,9 @@ const navItems = [
     icon: Users,
   },
   {
-    name: "Ask Fabel",
-    href: "/fabel",
-    icon: Sparkles,
+    name: "Insights",
+    href: "/insights",
+    icon: ChartColumn,
   },
   {
     name: "Settings",
