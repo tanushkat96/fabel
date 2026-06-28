@@ -27,18 +27,24 @@ function mapBook(book: OpenLibraryBook): GoogleBook {
 }
 
 export async function getBooksOfWeek(): Promise<GoogleBook[]> {
-  const res = await fetch(
-    "https://openlibrary.org/search.json?q=popular&limit=12",
-    {
-      cache: "force-cache",
-    }
-  );
+  try {
+    const res = await fetch(
+      "https://openlibrary.org/search.json?q=popular&limit=12",
+      {
+        cache: "force-cache",
+      }
+    );
 
-  const data: OpenLibraryResponse = await res.json();
+    if (!res.ok) return [];
 
-  return data.docs.map(mapBook);
+    const data: OpenLibraryResponse = await res.json();
+
+    return data.docs.map(mapBook);
+  } catch (error) {
+    console.error("OpenLibrary Error:", error);
+    return [];
+  }
 }
-
 export async function searchBooks(
   query: string
 ): Promise<GoogleBook[]> {

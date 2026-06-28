@@ -2,7 +2,6 @@
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import ThemeToggle from "@/components/theme-toggle";
 import BookCard from "@/components/dashboard/book-card";
 import { useEffect, useState, useRef } from "react";
 import { getBooksByGenre } from "@/services/books";

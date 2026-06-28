@@ -1,6 +1,7 @@
 import Sidebar from "@/components/dashboard/sidebar";
 import ThemeToggle from "@/components/theme-toggle";
 import ProfileDropdown from "@/components/profile-dropdown";
+import AskFabel from "@/components/ask-fabel/ask-fabel";
 
 export default function AppLayout({
   children,
@@ -21,6 +22,7 @@ export default function AppLayout({
 
         <div className="p-8">
           {children}
+           <AskFabel />
         </div>
       </main>
     </div>

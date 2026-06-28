@@ -36,6 +36,7 @@ export default function AuthorCard({
         <Image
           src={image}
           alt={name}
+           sizes="96px"
           fill
           className="object-cover transition duration-300 group-hover:scale-105"
         />

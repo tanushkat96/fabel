@@ -7,29 +7,32 @@ import AuthorCard from "@/components/community/author-card";
 import DiscussionCard from "@/components/community/discussion-card";
 import BlogCard from "@/components/community/blog-card";
 
-const authors = [
+export const authors = [
   {
     name: "J.K. Rowling",
-    image: "/authors/rowling.jpg",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80",
     books: 27,
   },
   {
     name: "Stephen King",
-    image: "/authors/stephen.jpg",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
     books: 65,
   },
   {
     name: "Agatha Christie",
-    image: "/authors/agatha.jpg",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&auto=format&fit=crop&q=80",
     books: 85,
   },
   {
     name: "Jane Austen",
-    image: "/authors/jane.jpg",
+    image:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80",
     books: 6,
   },
 ];
-
 const discussions = [
   {
     title: "The Alchemist",
@@ -179,7 +182,24 @@ export default function CommunityPage() {
         </div>
 
       </section>
-
+ {/* Ask Fabel */}
+      <button
+        className="
+          fixed
+          bottom-8
+          right-8
+          rounded-full
+          bg-primary
+          px-6
+          py-4
+          text-primary-foreground
+          shadow-xl
+          transition-all
+          hover:scale-105
+        "
+      >
+        ✨ Ask Fabel
+      </button>
     </div>
   );
 }

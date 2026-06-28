@@ -39,6 +39,7 @@ const { removeBook } = useShelfStore();
 
        
       </header>
+
       {/* Empty State */}
       {isEmpty && (
         <div className="mt-20 rounded-3xl border border-dashed p-16 text-center">
@@ -138,8 +139,27 @@ const { removeBook } = useShelfStore();
           setOpen(true);
         }}
       />
+      
     </div>
   ))}
+   {/* Ask Fabel */}
+      <button
+        className="
+          fixed
+          bottom-8
+          right-8
+          rounded-full
+          bg-primary
+          px-6
+          py-4
+          text-primary-foreground
+          shadow-xl
+          transition-all
+          hover:scale-105
+        "
+      >
+        ✨ Ask Fabel
+      </button>
 </Bookshelf>
       <BookSheet
         open={open}
